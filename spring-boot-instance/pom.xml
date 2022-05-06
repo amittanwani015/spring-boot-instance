@@ -11,7 +11,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	
-	<groupId>com.amit.technology.web</groupId>
+	<groupId>com.tancor.spring</groupId>
 	<artifactId>spring-boot-instance</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>spring-boot-instance</name>
