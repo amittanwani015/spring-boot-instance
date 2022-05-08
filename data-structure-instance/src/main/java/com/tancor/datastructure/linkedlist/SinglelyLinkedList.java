@@ -67,7 +67,8 @@ public class SinglelyLinkedList<T extends Comparable<T>> implements List<T>{
 		if(root==null) return;
 
 		if(root.getData().compareTo(item)==0) {
-			System.out.println(String.format("ITEM TO BE DELETED : %s", root));
+			System.out.println();
+			System.out.print(String.format("ITEM TO BE DELETED : %s", root));
 			root=root.getNextNode();
 			noOfItems--;
 		}else {
@@ -97,14 +98,54 @@ public class SinglelyLinkedList<T extends Comparable<T>> implements List<T>{
 
 		Node<T> actualNode=root;
 		while(actualNode!=null) {
-			System.out.println(actualNode.getData());
+			System.out.print(actualNode.getData()+"\t");
 			actualNode=actualNode.getNextNode();
 		}		
 
+		System.out.println();		
 	}
 
 	@Override
 	public int size() {
 		return noOfItems;
 	}
+
+	public T findMiddleNode() {
+
+		if(root == null) {
+			return null;
+		}
+
+		Node<T> slowPointer=root;
+		Node<T> fastPointer=root;
+
+		while(fastPointer.getNextNode()!=null && fastPointer.getNextNode().getNextNode()!=null) {
+			slowPointer=slowPointer.getNextNode();
+			fastPointer=fastPointer.getNextNode().getNextNode();
+		}
+
+		return slowPointer.getData();
+
+	}	
+
+	public void reverseLinkedList() {
+		
+		Node<T> nextNode=root;
+		Node<T> prevNode=null;
+		Node<T> currentNode=null;
+		
+		while(nextNode!=null) {
+		
+			currentNode=nextNode; 	/** storing reference in another, to modify it's next without affecting the current iteration of main linkedlist */
+			nextNode=nextNode.getNextNode();			
+
+			currentNode.setNextNode(prevNode);
+			prevNode=currentNode;		
+			
+		}
+		
+		root=currentNode;
+		
+	}
+
 }

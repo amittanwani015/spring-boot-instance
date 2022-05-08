@@ -1,4 +1,4 @@
-package com.tancor.datastructure.linkedlist;
+package com.tancor.datastructure.stacks;
 
 public class Node<T extends Comparable<T>> {
 
@@ -6,8 +6,7 @@ public class Node<T extends Comparable<T>> {
 
 	/** reason why linked list need more memory than arrays **/
 	private Node<T> nextNode; 
-	private Node<T> previousNode;
-
+	
 	public Node(T data) {
 		this.setData(data);			
 	}
@@ -32,12 +31,5 @@ public class Node<T extends Comparable<T>> {
 	public String toString() {
 		return "Node [data=" + data + ", nextNode=" + nextNode + "]";
 	}
-
-	public Node<T> getPreviousNode() {
-		return previousNode;
-	}
-
-	public void setPreviousNode(Node<T> previousNode) {
-		this.previousNode = previousNode;
-	}		
+	
 }
